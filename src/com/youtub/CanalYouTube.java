@@ -1,43 +1,43 @@
 package com.youtub;
 
-import com.observer.Subscriber;
-import com.observer.Publisher;
 import java.util.ArrayList;
+import com.observer.Observador;
+import com.observer.Sujeto;
 
-public class CanalYouTube implements Publisher {
+public class CanalYouTube implements Sujeto {
 
-    private final ArrayList<Subscriber> chanelSubscribers;
-    private String lastVideoPosted;
+    private final ArrayList<Observador> subscriptores;
+    private String ultimoVideoSubido;
 
     public CanalYouTube() {
-        chanelSubscribers = new ArrayList<>();
-        lastVideoPosted = "";
+        subscriptores = new ArrayList<>();
+        ultimoVideoSubido = "";
     }
 
-    public String getLastVideoPosted() {
-        return lastVideoPosted;
+    public String getUltimoVideoSubido() {
+        return ultimoVideoSubido;
     }
 
-    public void addNewVideo(String title) {
-        lastVideoPosted = title;
+    public void agregarNuevoVideo(String titulo) {
+        ultimoVideoSubido = titulo;
         System.out.println("Nuevo video agregado! ");
-        notifySubscribers();
+        notificar();
     }
 
     @Override
-    public void subscribers(Subscriber s) {
-        chanelSubscribers.add(s);
+    public void adscribir(Observador s) {
+        subscriptores.add(s);
     }
 
     @Override
-    public void unsubscribe(Subscriber s) {
-        chanelSubscribers.remove(s);
+    public void quitar(Observador s) {
+        subscriptores.remove(s);
     }
 
     @Override
-    public void notifySubscribers() {
-        for (Subscriber suscriptor : chanelSubscribers) {
-            suscriptor.update(this);
+    public void notificar() {
+        for (Observador suscriptor : subscriptores) {
+            suscriptor.actualizar(this);
         }
     }
 }
