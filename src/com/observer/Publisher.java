@@ -1,7 +1,8 @@
 package com.observer;
 
 public interface Publisher {
-    public void subscribers(Subscriber o);
-    public void unsubscribe(Subscriber o);
-    public void notifySubscriber();
+
+    public void subscribers(Subscriber s);    
+    public void unsubscribe(Subscriber s);
+    public void notifySubscribers();
 }

@@ -4,12 +4,12 @@ import com.observer.Subscriber;
 import com.observer.Publisher;
 import java.util.ArrayList;
 
-public class YouTubeChanel implements Publisher {
+public class CanalYouTube implements Publisher {
 
     private final ArrayList<Subscriber> chanelSubscribers;
     private String lastVideoPosted;
 
-    public YouTubeChanel() {
+    public CanalYouTube() {
         chanelSubscribers = new ArrayList<>();
         lastVideoPosted = "";
     }
@@ -20,22 +20,22 @@ public class YouTubeChanel implements Publisher {
 
     public void addNewVideo(String title) {
         lastVideoPosted = title;
-        notifySubscriber();
-        System.out.println("New youtube added to channel!");
+        System.out.println("Nuevo video agregado! ");
+        notifySubscribers();
     }
 
     @Override
-    public void subscribers(Subscriber o) {
-        chanelSubscribers.add(o);
+    public void subscribers(Subscriber s) {
+        chanelSubscribers.add(s);
     }
 
     @Override
-    public void unsubscribe(Subscriber o) {
-        chanelSubscribers.remove(o);
+    public void unsubscribe(Subscriber s) {
+        chanelSubscribers.remove(s);
     }
 
     @Override
-    public void notifySubscriber() {
+    public void notifySubscribers() {
         for (Subscriber suscriptor : chanelSubscribers) {
             suscriptor.update(this);
         }

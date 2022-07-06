@@ -1,19 +1,19 @@
 package com.main;
 
-import com.youtub.ConcreteSubscriber;
-import com.youtub.YouTubeChanel;
+import com.youtub.Subscriptor;
+import com.youtub.CanalYouTube;
 
 
 public class Main {
     public static void main(String[] args) {
-        YouTubeChanel chanel = new YouTubeChanel();
+        CanalYouTube canal = new CanalYouTube();
         
-        ConcreteSubscriber subscriber = new ConcreteSubscriber();
-        ConcreteSubscriber subscriber1 = new ConcreteSubscriber();
+        Subscriptor subscriptor = new Subscriptor();
+        Subscriptor subscriptor1 = new Subscriptor();
         
-        chanel.subscribers(subscriber);
-        chanel.subscribers(subscriber1);
+        canal.subscribers(subscriptor);
+        canal.subscribers(subscriptor1);
         
-        chanel.addNewVideo("Que Pasa!");
+        canal.addNewVideo("Patron Observer!");
     }
 }
