@@ -1,13 +1,13 @@
 package com.youtub;
 
-import com.observer.Subscriber;
-import com.observer.Publisher;
+import com.observer.Observador;
+import com.observer.Sujeto;
 
-public class Subscriptor implements Subscriber {
+public class Subscriptor implements Observador {
 
     @Override
-    public void update(Publisher context) {
+    public void actualizar(Sujeto contexto) {
         System.out.println("Nuevo video subido!");
-        System.out.println(((CanalYouTube) context).getLastVideoPosted());
+        System.out.println(((CanalYouTube) contexto).getUltimoVideoSubido());
     }
 }

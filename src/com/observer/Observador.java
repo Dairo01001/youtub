@@ -1,5 +1,5 @@
 package com.observer;
 
-public interface Subscriber {
-    public void update(Publisher context);
+public interface Observador {
+    public void actualizar(Sujeto contexto);
 }

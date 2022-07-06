@@ -1,8 +1,8 @@
 package com.observer;
 
-public interface Publisher {
+public interface Sujeto {
 
-    public void subscribers(Subscriber s);    
-    public void unsubscribe(Subscriber s);
-    public void notifySubscribers();
+    public void adscribir(Observador o);    
+    public void quitar(Observador o);
+    public void notificar();
 }
